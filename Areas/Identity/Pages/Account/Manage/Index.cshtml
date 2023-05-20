@@ -1,0 +1,169 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "البيانات الشخصية";
+    ViewData["ActivePage"] = ManageNavPages.Index;
+}
+
+<p class="font-weight-bolder">@ViewData["Title"]</p>
+<partial name="_StatusMessage" model="Model.StatusMessage" />
+<div class="row">
+    <div class="col-md-6">
+        <form id="profile-form" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Input.ArName"></label>
+                <input asp-for="Input.ArName" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.EnName"></label>
+                <input asp-for="Input.EnName" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Username"></label>
+                <input asp-for="Username" class="form-control" disabled />
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Input.IsNewsletter" /> @Html.DisplayNameFor(model => model.Input.IsNewsletter)
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Input.PhoneNumber"></label>
+                <input asp-for="Input.PhoneNumber" class="form-control" />
+                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.RegistrationDate"></label>
+                <input disabled asp-for="Input.RegistrationDate" class="form-control" />
+                <span asp-validation-for="Input.RegistrationDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Balance"></label>
+                <input disabled asp-for="Input.Balance" class="form-control" />
+                <span asp-validation-for="Input.Balance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.SecondEmail"></label>
+                <input asp-for="Input.SecondEmail" class="form-control" />
+                <span asp-validation-for="Input.SecondEmail" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+            <label asp-for="Input.AccountType"></label>
+            <select disabled asp-for="Input.AccountType" asp-items="Html.GetEnumSelectList<Models.Common.AccountType>()" class="form-control" ></select>
+            <span asp-validation-for="Input.AccountType" class="text-danger"></span>
+        </div>*@
+            <div class="form-group">
+                <label asp-for="Input.SupportPin"></label>
+                <input disabled asp-for="Input.SupportPin" class="form-control" />
+                <span asp-validation-for="Input.SupportPin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.AccountNumber"></label>
+                <input disabled asp-for="Input.AccountNumber" class="form-control" />
+                <span asp-validation-for="Input.AccountNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.IncentivePoints"></label>
+                <input disabled asp-for="Input.IncentivePoints" class="form-control" />
+                <span asp-validation-for="Input.IncentivePoints" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.NationalityId"></label>
+                <select asp-for="Input.NationalityId" class="form-control" asp-items="ViewBag.NasionalityId"></select>
+                <span asp-validation-for="Input.NationalityId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.CountryId"></label>
+                <select id="cntid" asp-for="Input.CountryId" class="form-control" asp-items="ViewBag.CountryId"></select>
+                <span asp-validation-for="Input.CountryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.CityId"></label>
+                <select id="ctyid" asp-for="Input.CityId" class="form-control" asp-items="@(ViewBag.CityId)"><option disabled selected>إختر المدينة</option></select>
+                <span asp-validation-for="Input.CityId" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+            <label asp-for="Input.ReferredById"></label>
+            <input disabled asp-for="Input.ReferredById"  class="form-control"  />
+            <span asp-validation-for="Input.ReferredById" class="text-danger"></span>
+        </div>*@
+            @*<div class="form-group">
+            <label asp-for="Input.DateofBirth"></label>
+            <input id="modeldateofbirth" asp-for="Input.DateofBirth" class="form-control" />
+            <span asp-validation-for="Input.DateofBirth" class="text-danger"></span>
+        </div>*@
+            <div class="form-group">
+                <label asp-for="Input.DateofBirth"></label>
+                <input name="birthdate" value="@Model.Input.DateofBirth.ToShortDateString()" id="mydate" class="form-control" />
+                @*<div id="datepicker"></div>*@
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Gender"></label>
+                <select asp-for="Input.Gender" asp-items="Html.GetEnumSelectList<Models.Common.GenderType>()" class="form-control"></select>
+                <span asp-validation-for="Input.Gender" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+            <label asp-for="Input.Status"></label>
+            <select disabled asp-for="Input.Status" asp-items="Html.GetEnumSelectList<Models.Common.StatusType>()" class="form-control"  ></select>
+            <span asp-validation-for="Input.Status" class="text-danger"></span>
+        </div>*@
+            <div class="form-group">
+                <label asp-for="Input.JobName"></label>
+                <select asp-for="Input.JobName" asp-items="Html.GetEnumSelectList<Models.Common.JobName>()" class="form-control"></select>
+                <span asp-validation-for="Input.JobName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.UILanguage"></label>
+                <select asp-for="Input.UILanguage" asp-items="Html.GetEnumSelectList<Models.Common.Language>()" class="form-control"></select>
+                <span asp-validation-for="Input.UILanguage" class="text-danger"></span>
+            </div>
+            <button id="update-profile-button" type="submit" class="btn rounded-0 btn-primary rounded-0">حفظ</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="/Jquery-ui/jquery-ui.js"></script>
+    <script>
+        //$('#mydate').click(function () { 
+        //    alert('s')
+            $("#mydate").datepicker({
+                inline: true,
+                changeYear: true,
+                yearRange: '1950:2000',
+                dateFormat: 'dd/mm/yy',
+                //onSelect: function () {
+                //    $("#modeldateofbirth").val() = $(this).datepicker("getDate");
+                //}
+            });
+        //})
+    </script>
+    <script>
+        $(document).ready(function () {
+
+            // $("#ctyid").prop("disabled", true);
+            $("#cntid").change(function () {
+                //  $("#ctyid").prop("disabled", true);
+                $("#ctyid").empty();
+                if ($("#cntid").val() > 0) {
+                    var CountryOptions = {};
+                    CountryOptions.url = "/Home/GetCitiesList/";
+                    CountryOptions.data = { countryid: $("#cntid").val() };
+                    CountryOptions.success = function (data) {
+                        $.each(data, function (index, row) {
+                            $("#ctyid").append($('<option>', { value: row.value, text: row.text }))
+                        });
+                        //  $("#ctyid").prop("disabled", false);
+                    };
+                    CountryOptions.error = function () { alert("CityError"); };
+                    $.ajax(CountryOptions);
+                }
+            });
+        });
+    </script>
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,12 @@
+﻿@{
+    string title = (string)ViewData["heading"];
+}
+
+<div class="w-100 d-flex justify-content-between align-items-center Heading ">
+    <img src="~/Images//quran.png" class="d-none d-sm-block" />
+
+    <h3 class="my-1 text-center py-2 d-md-none d-block">@title</h3>
+    <h2 class="my-1 text-center py-2 d-md-block d-none"> @title</h2>
+
+    <img src="~/Images/crescent-moon.png" class="d-none d-sm-block" />
+</div>

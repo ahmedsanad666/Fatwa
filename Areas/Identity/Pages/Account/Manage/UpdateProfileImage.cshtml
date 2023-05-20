@@ -1,0 +1,59 @@
+﻿@page
+@model UpdateProfileImageModel
+
+
+
+<div class="row">
+    <div class="col-md-12">
+        <form method="post" enctype="multipart/form-data">
+            <partial name="_StatusMessage" model="Model.StatusMessage" />
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <div class="input-group">
+                @if (Model.ProfileImage != null)
+                {
+                    <img id="img1" class="rounded img-responsive" src="~/ProfileImages/@Model.ProfileImage" width="200" height="250" />
+                }
+                else
+                {
+                    <img hidden id="img1" class="rounded img-responsive" src="" width="200" height="250" />
+                }
+                <p>@Model.StatusMessage</p>
+
+                <div class="input-group mb-3">
+                    <input asp-for="ProfileImage" id="fileinput1" class="form-control" type="text" aria-label="Recipient's username" aria-describedby="basic-addon2" />
+
+                    @*<input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">*@
+                    <div class="input-group-append">
+                        <button type="button" class="input-group-text" id="basic-addon2">إختيار صورة</button>
+                    </div>
+                </div>
+                <input hidden type="file" name="myfile" id="myfile1" accept=".png,.jpg,.jpeg,.gif,.tif" class="btn rounded-0 btn-secondary" />
+            </div>
+            <button id="btnsave" type="submit" class="btn rounded-0 btn-primary">تحديث</button>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#basic-addon2').click(function () {
+                $('#myfile1').click();
+            })
+            $("#myfile1").change(function () {
+                if ($("#myfile1").val() != "") {
+                    $("#fileinput1").prop("value", $("#myfile1").val().split('\\').pop());
+
+                    //to show new image at a time of image selected from file input type
+                    if (this.files && this.files[0]) {
+                        $('#img1').prop("hidden", false);
+                        var reader = new FileReader();
+                        reader.onload = function (e) { $('#img1').attr('src', e.target.result); }
+                        reader.readAsDataURL(this.files[0]);
+                    }
+                }
+            });
+        });
+    </script>
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

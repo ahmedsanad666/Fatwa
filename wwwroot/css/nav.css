@@ -1,0 +1,384 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+@import url(https://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
+
+
+header {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+/*nav {
+    height: 100px;
+    background-color: white;
+
+    padding: 10px 120px;
+    border-bottom: 4px solid lightgray;
+}*/
+a.active {
+    border-radius: 30px;
+    background-color: lightgray;
+}
+
+
+
+.messagetriangle {
+    z-index: -1;
+    position: absolute;
+    top: -8px;
+    left: 40px;
+    height: 15px;
+    width: 15px;
+    border-radius: 3px 0px 0px 0px;
+    transform: rotate(45deg);
+    background-color: ghostwhite;
+    border-top: 1px solid gray;
+    border-left: 1px solid gray;
+}
+
+.notificationtriangle {
+    z-index: -1;
+    position: absolute;
+    top: -8px;
+    left: 40px;
+    height: 15px;
+    width: 15px;
+    border-radius: 3px 0px 0px 0px;
+    transform: rotate(45deg);
+    background-color: ghostwhite;
+    border-top: 1px solid gray;
+    border-left: 1px solid gray;
+}
+
+.ulmessages {
+    background-color: lightblue;
+    max-height: 650px;
+/*    overflow: auto;
+*/    left: 267px;
+    width: 300px;
+    border: 1px solid gray;
+    margin-top: 87px;
+    position: absolute;
+    z-index: 10000;
+    background-color: whitesmoke;
+    border-bottom:1px solid black;
+}
+.ulnotifications {
+    background-color: lightblue;
+    max-height: 500px;
+/*    overflow: auto;
+*/    left: 210px;
+    background-color: whitesmoke;
+    width: 300px;
+    border: 1px solid gray;
+    margin-top: 87px;
+    position: absolute;
+    z-index: 10000;
+}
+
+
+.ulmessages .heading {
+    background-color: ghostwhite;
+    padding: 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid gray;
+}
+
+.ulnotifications .heading {
+    background-color: ghostwhite;
+    padding: 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid gray;
+}
+.ulmessages .footer{
+    background-color:ghostwhite;
+    padding:5px;
+    border-top:1px solid gray;
+}
+.ulnotifications .footer {
+    background-color: ghostwhite;
+    padding: 5px;
+    border-top: 1px solid gray;
+}
+
+
+
+#testmessage, #test {
+    padding: 0px 10px;
+/*    line-height: 80px;
+*/    float: left;
+    padding: 30px 10px;
+}
+    #testmessage:hover, #test:hover {
+        background-color: whitesmoke;
+        border-radius:30px;
+        /*        padding: 0px 10px;
+        line-height: 80px;
+        float: none;
+        margin: 0 2px;
+*/
+    }
+
+
+nav .ulmessages, .ulnotifications {
+    /*margin-top:100px;
+*/
+}
+
+
+
+.imglogin {
+    width: 50px;
+    height: 50px;
+}
+
+nav .ullogin {
+    float: left;
+    line-height: 80px;
+}
+
+    nav .ullogin .lilogin {
+        display: inline-block;
+        margin: 0 10px;
+        /*        line-height: 80px;*/
+        /*            margin: 0 2px;
+            margin-top: 20px
+*/
+    }
+
+
+
+
+.logonav {
+    float: right;
+    color: black;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 5px;
+    font-weight: bold;
+}
+
+nav .ulnav {
+    float: right;
+    margin-left: 10px;
+}
+
+    nav .ulnav .linav {
+        display: inline-block;
+        /*        line-height: 80px;
+*/ margin: 0 2px;
+        margin-top: 30px
+    }
+
+        nav .ulnav .linav .anav {
+            font-size: 15px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 3px;
+            padding: 28px 10px 20px 10px;
+            color: black;
+        }
+
+.anav.active, .anav:hover {
+    color: black;
+    background-color: whitesmoke;
+    transition: all .5s;
+    text-decoration: none;
+}
+
+.checkbtnnav {
+    font-size: 30px;
+    color: black;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+
+#checknav {
+    display: none;
+}
+
+
+
+@media(max-width:1200px) {
+
+    .ulmessages {
+        left: 147px;
+    }
+
+    .ulnotifications {
+        left: 90px;
+    }
+
+    nav {
+        padding: 0 0px;
+    }
+
+    .logonav {
+        font-size: 25px;
+        padding-left: 50px;
+    }
+
+
+
+    nav .ulnav .linav .anav {
+        font-size: 12px;
+        padding: 2px 5px;
+    }
+
+    .checkbtnnav {
+        margin-right: 20px;
+    }
+
+
+
+
+    .notificationtriangle {
+        /*        left: 215px;
+*/
+    }
+
+    .messagetriangle {
+        /*        left: 145px;
+*/
+    }
+}
+
+@media(max-width:858px) {
+    .messagetriangle {
+        display: none
+    }
+
+    .notificationtriangle {
+        display: none
+    }
+
+    nav .ulmessages {
+        left:0px;
+        z-index: 100;
+        margin-top: 80px;
+        top: 15px;
+        border: none;
+        background-color: whitesmoke;
+        height: 100vh;
+        width: 100%;
+    }
+
+        nav .ulmessages .limessages {
+            width: 100%;
+        }
+
+
+    nav .ulnotifications {
+        left: 0px;
+        margin-top: 80px;
+        z-index: 100;
+        top: 15px;
+        border: none;
+        background-color: whitesmoke;
+        height: 100vh;
+        width: 100%;
+    }
+
+
+    #testmessage, #test {
+        padding: 0px 10px;
+        line-height: 80px;
+        float: none;
+        margin: 0 2px;
+
+    }
+
+    #testmessage:hover, #test:hover {
+        background-color:whitesmoke;
+/*        padding: 0px 10px;
+        line-height: 80px;
+        float: none;
+        margin: 0 2px;
+*/    }
+
+    .messagesplanel .heading {
+        display: none;
+    }
+
+    .notificationplanel .heading {
+        display: none;
+    }
+
+    .messagetriangle {
+        display: none;
+    }
+
+    nav .ullogin {
+        float: left;
+        line-height: 80px;
+    }
+
+        nav .ullogin .lilogin {
+            display: inline-block;
+            margin: 0 2px;
+            /*        line-height: 80px;*/
+            /*            margin: 0 2px;
+            margin-top: 20px
+*/
+        }
+
+    .logonav {
+        font-size: 20px;
+        padding-left: 25px;
+    }
+
+    .checkbtnnav {
+        display: block;
+    }
+
+
+    nav .ulnav {
+        position: fixed;
+        text-align: center;
+    }
+
+    nav .ulnav {
+        z-index: 100;
+        height: 100vh;
+        left: -110%;
+        background-color: whitesmoke;
+        top: 80px;
+        transition: all .5s;
+        width: 100%;
+    }
+
+        nav .ulnav .linav {
+            display: block;
+/*            margin: 10px 0;
+*/            line-height: 30px;
+        }
+
+            nav .ulnav .linav .anav {
+                font-size: 20px;
+            }
+
+    .anav:hover, .anav.active {
+        background: none;
+        color: #0082ef;
+    }
+
+    #checknav:checked ~ .ulnav {
+        left: -10px;
+    }
+
+    .checkbtnnav {
+        margin-right: 5px;
+    }
+
+    .imglogin {
+        width: 40px;
+        height: 40px;
+    }
+
+}

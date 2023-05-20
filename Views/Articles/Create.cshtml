@@ -1,0 +1,77 @@
+﻿@model WebOS.Models.Article
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>موضوع جديد</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Content" class="control-label"></label>
+                <textarea rows="20" asp-for="Content" class="form-control" ></textarea>
+                <span asp-validation-for="Content" class="text-danger"></span>
+            </div>
+        
+             <div id="imagediv" class="form-group">
+                    <label asp-for="Image" class="form-label"></label>
+                    <input type="file" name="myfile" id="file" accept=".png,.jpg,.jpeg,.gif,.tif" class="form-control-file" />
+                    <span asp-validation-for="Image" class="text-danger"></span>
+                    <input asp-for="Image" id="fileinput" class="form-control" />
+                </div>
+        
+            <div class="form-group">
+                <label asp-for="Source" class="control-label"></label>
+                <input asp-for="Source" class="form-control" />
+                <span asp-validation-for="Source" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">العودة</a>
+</div>
+
+@section Scripts {
+     <script>
+        $(document).ready(function () {
+            $("#file").change(function () {
+                if ($("#file").val() != "") {
+                    $("#fileinput").prop("value", $("#file").val().split('\\').pop());
+                }
+            });
+        });
+
+    </script>
+
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            directionality: "rtl",
+            plugins: 'advlist autolink lists link image charmap preview anchor pagebreak',
+            toolbar_mode: 'floating',
+        });
+    </script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+ 

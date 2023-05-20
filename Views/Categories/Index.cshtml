@@ -1,0 +1,68 @@
+﻿@model IEnumerable<WebOS.Models.Fatwa>
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@{
+    ApplicationUser currentuser = await UserManager.GetUserAsync(User);
+}
+@{
+    ViewData["Title"] = "الاقسام";
+    ViewData["heading"] = "أقسام الرئيسية";
+}
+
+<div class="py-4">
+
+<partial name="_Heading" view-data="@ViewData"/>
+@if (SignInManager.IsSignedIn(User))    
+{
+    <p class="py-3 mt-2 " >
+            <a asp-action="Create" class="Add"> قسم جديد <i class="fa-solid fa-plus mx-2"></i></a>
+    </p>
+}
+<table class="table category" >
+    <thead>
+        <tr>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Name)*@
+                الاسم   
+            </th>
+            <th>
+                @* @Html.DisplayNameFor(model => model.Image)*@
+                الصورة
+            </th>
+            <th>
+                عدد الفتاوى
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.Categories)
+        {
+            <tr>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.Name)*@
+                    <a asp-action="IndexByCategory" asp-controller="Fatwas" asp-route-id="@item.Id">@item.Name</a>
+                </td>
+                <td>
+                    @* @Html.DisplayFor(modelItem => item.Image)*@
+                    <a asp-action="IndexByCategory" asp-controller="Fatwas" asp-route-id="@item.Id"><img class="img-fluid center-block d-block mx-auto" width="100" src="/Images/@item.Image" /></a>
+                </td>
+                <td><a asp-action="IndexByCategory" asp-controller="Fatwas" asp-route-id="@item.Id">@Model.Where(c=>c.CategoryId == item.Id).Count()</a></td>
+                <td class="d-flex flex-md-row flex-column ">
+                    
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+
+                        <a class="Edit" asp-action="Edit" asp-route-id="@item.Id">تحرير</a> <span>|</span>
+                        <a class="Details" asp-action="Details" asp-route-id="@item.Id">تفاصيل</a> <span>|</span>
+                        <a class="Delete" asp-action="Delete" asp-route-id="@item.Id">حذف</a>
+                    @*<a asp-action="IndexByCategory" asp-controller="Fatwas" asp-route-id="@item.Id">الفتاوى</a>*@
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+</div>

@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32319.34
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebOS", "WebOS.csproj", "{80AC633D-85B7-401C-8233-C938FA3CDDD0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MAUI", "..\MAUI\MAUI.csproj", "{E3ADEDD5-8C2D-40AD-9128-9B5390703A2B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{80AC633D-85B7-401C-8233-C938FA3CDDD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80AC633D-85B7-401C-8233-C938FA3CDDD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80AC633D-85B7-401C-8233-C938FA3CDDD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80AC633D-85B7-401C-8233-C938FA3CDDD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3ADEDD5-8C2D-40AD-9128-9B5390703A2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3ADEDD5-8C2D-40AD-9128-9B5390703A2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3ADEDD5-8C2D-40AD-9128-9B5390703A2B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{E3ADEDD5-8C2D-40AD-9128-9B5390703A2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3ADEDD5-8C2D-40AD-9128-9B5390703A2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3ADEDD5-8C2D-40AD-9128-9B5390703A2B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A97A5970-5ABD-4E95-8F78-D2FC8AE87FCB}
+	EndGlobalSection
+EndGlobal

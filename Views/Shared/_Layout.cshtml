@@ -1,0 +1,475 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@{
+    ApplicationUser currentuser = await UserManager.GetUserAsync(User);
+}
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" asp-append-version="true" />
+    <script src="https://cdn.tiny.cloud/1/o74121qe2vgwn9rjx841hktrbt307eji8apqa3vaqtlkjcz4/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap-rtl.min.css" rel="stylesheet" />
+    <link rel="stylesheet"
+          href="https://cdn.rtlcss.com/bootstrap/v4.2.1/css/bootstrap.min.css"
+          integrity="sha384-vus3nQHTD+5mpDiZ4rkEPlnkcyTP+49BhJ4wJeJunw06ZAp+wzzeBPUXr42fi8If"
+          crossorigin="anonymous">
+          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale = 1.0, user-scalable=no">
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - تطبيق الفتاوى</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link href="~/css/nav.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/courses.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/blogs.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/projects.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/slider.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/newslider.css" rel="stylesheet" asp-append-version="true" />
+    <link href="/Jquery-ui/jquery-ui.css" rel="stylesheet" asp-append-version="true" />
+    <link href="/css/cards.css" rel="stylesheet" asp-append-version="true" />
+    <link href="/css/global.css" rel="stylesheet" asp-append-version="true" />
+
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+    <script>
+        window.OneSignal = window.OneSignal || [];
+        OneSignal.push(function () {
+            OneSignal.init({
+                appId: "afe82682-da7c-4862-822e-f749bc8fd76a",
+            });
+        });
+    </script>
+</head>
+<body style="background-color:whitesmoke">
+    <header>
+        <nav class="NavBarMain">
+            <div class="row">
+                <div class="col">
+     
+            <input type="checkbox" id="hideMenu" hidden />
+                    <label for="hideMenu" class="checkbtnnav">
+                <i class="fa fa-bars"></i>
+            </label>
+                    
+            <label class="logonav"><a asp-action="Index" asp-controller="Home"><img width="80" src="~/Pictures/logo.jpg" /></a></label>
+                </div>
+                  
+                <div class="col-8 d-md-block d-none">
+
+            <ul class="ulnav">
+                @if (User.IsInRole(RoleName.Admins))
+                {
+                    <li class="linav dropdown">
+                        <a class="" aria-haspopup="true" asp-action="Control" asp-controller="ApplicationUsers"><strong><span class="fa fa-lock fa-2x"></span></strong></a>
+                        <!--<ul class="dropdown-menu mr-n5 rounded-0" role="menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li class=""><a class="dropdown-item text-dark" asp-action="control" asp-controller="ApplicationUsers"><strong>لوحة التحكم <span class="fa fa-list"></span></strong></a></li>-->
+                        @*<li class=""><a class="dropdown-item text-dark" asp-action="Index" asp-controller="RoleAdmin" class=""><strong>الصلاحيات <span class="fa fa-list"></span></strong></a></li>*@
+                        <!--</ul>-->
+                    </li>
+                }
+                @*@await Component.InvokeAsync("DynamicNav")*@
+
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    @*  <li class="linav">
+                <a title="الرصيد" class="text-dark anav" asp-area="" asp-controller="SenangPays" asp-action="Create"><strong>@currentuser.Balance <i class="fas fa-dollar-sign"></i></strong></a>
+                </li>*@
+
+                }
+                <li class="linav">
+                    <a title="#" class="text-dark anav" asp-area="" asp-controller="Categories" asp-action="Index"><strong>الاقسام </strong></a>
+                    <a title="#" class="text-dark anav" asp-area="" asp-controller="Scholars" asp-action="Index"><strong>العلماء </strong></a>
+                    <a title="#" class="text-dark anav" asp-area="" asp-controller="Fatwas" asp-action="Index"><strong>الفتاوى </strong></a>
+                    <a title="#" class="text-dark anav" asp-area="" asp-controller="Articles" asp-action="Index"><strong>المدونة </strong></a>
+                    <a title="#" class="text-dark anav" asp-area="" asp-controller="Fatwas" asp-action="Search"><strong>بحث </strong></a>
+                    @* <a title="#" class="text-dark anav" asp-area="" asp-controller="Fatwas" asp-action="Search"><strong>التطبيق </strong></a>*@
+
+                            <button id="installBtn" class="btn-custom " onclick="instalar()" disabled> تنصيب التطبيق </button>
+                </li>
+            </ul>
+
+                </div>
+
+                <div class="col">
+            <partial name="_LoginPartial" />
+            @if (SignInManager.IsSignedIn(User))
+            {
+                <a id="test" name="@currentuser.Id" href="#" role="button" class="text-dark" data-toggle="">
+                    <i class="fa fa-bell text-secondary"><small><span id="notificationcounter" class="badge badge-danger"></span></small></i>
+
+                </a>
+                <ul class="ulnotifications">
+                    <li class="limessages">
+                        <div class="">
+                            <div class="notificationplanel" role="menu" aria-labelledby="drop3">
+                                <div class="">
+                                    <span class="notificationtriangle"></span>
+                                    <div class="heading">
+                                        <strong>الإشعارات</strong>
+                                    </div>
+                                    <div class="testn" id="notification-list">
+                                        <div style="float:none;margin-top:20px" class="loader center-block"></div>
+                                    </div>
+                                    <div class="footer">
+                                        <a asp-action="Index" asp-controller="Notifications" asp-route-id="@currentuser.Id" class="text-success h6" data-toggle="class:show animated fadeInRight"><span style="margin-left:0px; top: 5px; opacity: 1;" class="fa fa-bell"></span> جميع الإشعارات</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <a href="#" id="testmessage" name="@currentuser.Id" role="button" class="text-dark" data-toggle="">
+                    <i class="fa fa-envelope text-secondary"><small><span id="messagecounter" class="badge badge-danger mt-lg-n2"></span></small></i>
+                </a>
+
+                <ul class="ulmessages">
+                    <li class="limessages">
+                        <div class="notificationsbtn">
+                            <div class="messagesplanel" role="menu" aria-labelledby="drop3">
+                                <div class="">
+                                    <span class="messagetriangle"></span>
+                                    <div class="heading">
+                                        <strong class="">الرسائل</strong>
+                                    </div>
+                                    <div id="" class="testm ">
+                                        <div style="float:none;margin-top:20px" class="loader"></div>
+                                    </div>
+                                    <div class="footer">
+                                        <a asp-action="Index" asp-controller="Messages" asp-route-id="@currentuser.Id" class="text-success h6" data-toggle="class:show animated fadeInRight"><span class="fa fa-envelope"></span> جميع الرسائل</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            }
+            </div>
+                </div>
+
+        </nav>
+
+        <div class="text-center headerContent">
+            @*   <img width="100" src="~/Pictures/logo.jpg" />*@
+            <br />
+            <h4 class="display-6 bg-color">تطبيق فتاوى المجمع الفقهي العراقي</h4>
+            <form class="py-3">
+                <p> 
+                
+                    <input type="text" name="keyword" width="500" height="200">
+                    <input class="btn-custom" type="submit"  value="بحث" />
+                </p>
+            </form>
+        </div>
+        @*.....................................................doropdown.........................................*@
+
+        <div id="dropDownMenu" class="dropDownMenu  d-lg-none hide ">
+            <ul class="DropList">
+                @if (User.IsInRole(RoleName.Admins))
+                {
+                    <li>
+                        <a class="" aria-haspopup="true" asp-action="Control" asp-controller="ApplicationUsers"><strong><span class="fa fa-lock fa-2x"></span></strong></a>
+                    </li>
+                }
+        
+                <li>
+                    <a title="#" class="text-dark anav" asp-area="" asp-controller="Categories" asp-action="Index"><strong>الاقسام </strong></a>
+                </li>
+                <li>
+                    <a title="#" class="text-dark anav" asp-area="" asp-controller="Scholars" asp-action="Index"><strong>العلماء </strong></a>
+
+                </li> 
+                <li>
+                    <a title="#" class="text-dark anav" asp-area="" asp-controller="Fatwas" asp-action="Index"><strong>الفتاوى </strong></a>
+
+                </li>
+                <li>
+                    <a title="#" class="text-dark anav" asp-area="" asp-controller="Articles" asp-action="Index"><strong>المدونة </strong></a>
+                </li> 
+                <li>
+                    <a title="#" class="text-dark anav" asp-area="" asp-controller="Fatwas" asp-action="Search"><strong>بحث </strong></a>
+                </li>
+                <li>
+
+                    <button id="installBtn" class="btn-custom " onclick="instalar()" disabled> تنصيب التطبيق </button>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <div class="container body-container">
+        <main role="main" class="">
+            @RenderBody()
+        </main>
+    </div>
+    <partial name="_Footer"/>
+  @*  <div style="z-index:1000" class="icon-bar">
+        <a target="_blank" href="https://www.facebook.com/profile.php?id=100028282782209" class="facebook"><i class="fab fa-facebook-f"></i></a>
+        <a target="_blank" href="https://twitter.com/unBOEIW3uglaCpt" class="twitter"><i class="fab fa-twitter"></i></a>
+      
+        <a target="_blank" href="https://www.youtube.com/channel/UC5pA1F2whCXjjRsDkXI4uZQ" class="youtube"><i class="fab fa-youtube"></i></a>
+    </div>*@
+    @if (User.Identity.IsAuthenticated)
+    {
+    <input type="hidden" id="cubalance" value="@currentuser.Balance" />
+    }
+    <!--<footer style="background-color:#FAD6A5" class="text-center bottom footer text-muted justify-content-center flex-column">-->
+    @*@await Component.InvokeAsync("LayoutFooter")*@
+    <!--<hr />
+        <p class="container">Reserved AL-SAFA ACADEMY FOR QURANIC SERVICES - Malaysia (1280026-P) ADREES: 6-2 Jalan Putra kajang 3, Taman Putra Kjang, Bandar Kajang 43000, Selangor, Malaysia info@assafa-academy.com 0387405003, Whatsapp <i class="fa fa-whatsapp" aria-hidden="true"></i> : +60108442628        </p>
+        <hr />
+    </footer>-->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script>
+        var currentuserbalance = $('#cubalance').val();
+                $('.anav').click(function () {
+                if ($('#checknav').is(":checked") && screen.width < 858) {
+                    //$(this).parent('li').removeClass('dropdown')
+                    $(this).siblings('ul').removeClass('dropdown-menu').addClass('collapse')
+                    $(this).siblings('ul').toggleClass('show').toggleClass('hide')
+                    $(this).siblings('ul').css('background-color', 'white')
+
+
+                    $(this).siblings('ul').children('li').children('ul').removeClass('dropdown-menu').addClass('collapse')
+
+                }
+            });
+       
+        $('.subanav').click(function () {
+            if ($('#checknav').is(":checked") && screen.width < 858) {
+
+                $(this).siblings('ul').removeClass('dropdown-menu').addClass('collapse')
+                $(this).siblings('ul').toggleClass('show').toggleClass('hide')
+                $(this).siblings('ul').css('background-color', 'lightgray')
+            }
+        });
+    </script>
+    <script>
+        $('div,.checkbtnnav').click(function () {
+            $('.ulmessages').hide();
+            $('.ulnotifications').hide();
+            if ($('#test').hasClass('active')) {
+                $('#test').removeClass('active');
+            }
+
+            if ($('#testmessage').hasClass('active')) {
+                $('#testmessage').removeClass('active');
+            }
+
+
+        });
+    </script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $('.ulmessages,.ulnotifications').hide();
+
+        $('#test').click(function () {
+            $('.ulnotifications').toggle()
+            $('.ulmessages').hide()
+            if ($(this).hasClass('active')) {
+                $(this).removeClass('active');
+            }
+            else {
+                $(this).addClass('active');
+            }
+
+            if ($('#testmessage').hasClass('active')) {
+                $('#testmessage').removeClass('active');
+            }
+        });
+        $('#testmessage').click(function () {
+            $('.ulmessages').toggle()
+            $('.ulnotifications').hide()
+            if ($(this).hasClass('active')) {
+                $(this).removeClass('active');
+            }
+            else {
+                $(this).addClass('active');
+            }
+
+            if ($('#test').hasClass('active')) {
+                $('#test').removeClass('active');
+            }
+        });
+    </script>
+    @*@RenderSection("scripts")*@
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script>
+        $('.dropdown-menu a.dropdown-toggle').on('click', function (e) {
+            if (!$(this).next().hasClass('show')) {
+                $(this).parents('.dropdown-menu').first().find('.show').removeClass('show');
+            }
+            var $subMenu = $(this).next('.dropdown-menu');
+            $subMenu.toggleClass('show');
+
+
+            $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function (e) {
+                $('.dropdown-submenu .show').removeClass('show');
+            });
+
+
+            return false;
+        });
+    </script>
+    @*//messages*@
+    <script type="text/javascript">
+            $(document).ready(function () {
+                $.ajax({
+                    url:'@Url.Action("GetMessagesCount", "Home")',
+                    type: 'GET',
+                    success: function (data) {
+                        if (data.res == "0") {
+                            $("#messagecounter").hide();
+                        }
+                        else {
+                            $("#messagecounter").html(data.res);
+                        }
+                    },
+                    error: function (e) {
+                        //alert("Error!");
+                    }
+                });
+            });
+    </script>
+
+    <script>
+            $(document).ready(function ()
+            {
+                $('#testmessage').click(function ()
+                {
+
+                    {
+                        //$("#notification-list").empty();
+                        var _url = '@Url.Action("GetMyViewCompMessage", "Home")';
+                        $(".loader").fadeIn();
+                        $.ajax({
+                            type: "GET",
+                            url: _url,
+                            data: { uid: $(this).prop("name") },
+                            success: function (result) {
+                                $(".testm").html(result);
+                            },
+                            error: function (xhr, status, err) {
+                                //alert(err.toString(), 'Error - LoadListItemsHelper');
+                            },
+                            complete: function (result, jqXHR, status) {
+                                $(".loader").fadeOut();
+                            }
+                        });
+                    }
+                });
+            });
+    </script>
+
+
+    @*notifications*@
+    <script>
+            $(document).ready(function () {
+                $.ajax({
+                    url:'@Url.Action("GetNotificationsCount", "Home")',
+                    type: 'GET',
+                    success: function (data) {
+                        if (data.res == 0)
+                        {
+                            $("#notificationcounter").hide();
+                        }
+                        else
+                        {
+                            $("#notificationcounter").html(data.res);
+                        }
+                    },
+                    error: function (e) {
+                        //alert("Error!");
+                    }
+                });
+            });
+    </script>
+
+    <script>
+            $(document).ready(function () {
+                $('#test').click(function () {
+                {
+                    //$("#notification-list").empty();
+                    var _url = '@Url.Action("GetMyViewCompNotification", "Home")';
+                        $(".loader").fadeIn();
+                        $("#notificationcounter").hide();
+                    $.ajax({
+                        type: "GET",
+                        url: _url,
+                        data: { uid: $(this).prop("name") },
+                        success: function (result) {
+                            $(".testn").html(result);
+                        },
+                        error: function (xhr, status, err) {
+                            //alert(err.toString(), 'Error - LoadListItemsHelper');
+                        },
+                        complete: function (result, jqXHR, status) {
+                            $(".loader").fadeOut();
+                        }
+                    });
+                }
+            });
+        });
+
+
+        /** This code works only on properly formatted PWAs **/
+
+var beforeInstallPrompt = null;
+
+window.addEventListener("beforeinstallprompt", eventHandler, errorHandler);
+
+function eventHandler(event) {
+  beforeInstallPrompt = event;
+  document.getElementById("installBtn").removeAttribute("disabled");
+}
+
+function errorHandler(event) {
+  console.log("error: " + event);
+}
+
+function instalar() {
+  if (beforeInstallPrompt) beforeInstallPrompt.prompt();
+}
+
+
+
+
+    </script>
+
+  
+    <script>
+        $(document).ready(function () {
+            console.log('doe');
+            var items = $("#item-list li");
+            var currentIndex = 0;
+
+            function showNextItem() {
+                items.eq(currentIndex).addClass("hidden");
+                currentIndex = (currentIndex + 1) % items.length;
+                items.eq(currentIndex).removeClass("hidden");
+            }
+
+            items.not(":first").addClass("hidden");
+            setInterval(showNextItem, 20000);
+
+            //........................
+
+            $("#hideMenu").click(function(){
+
+                $("#dropDownMenu").toggleClass("hide");
+               
+            });
+        });
+    </script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
+@section Scripts{
+
+
+}

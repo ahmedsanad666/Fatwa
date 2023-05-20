@@ -1,0 +1,119 @@
+﻿* {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font: 16px/1.3 sans-serif;
+}
+
+/*
+PURE RESPONSIVE CSS3 SLIDESHOW GALLERY by Roko C. buljan
+http://stackoverflow.com/a/34696029/383904
+*/
+
+
+    /*cards part 2*/
+/* styles reset */
+
+/* PAGE LAYOUT */
+#cardsmain {
+    padding: 20px 20px;
+/*    max-width: 1361px;
+*/   /* margin: 0 auto;*/
+}
+.card-primary{
+    min-width:300px;
+}
+
+#myblogs {
+    /*    margin: 30px auto;
+*/ height: auto;
+    background-image: linear-gradient(to left, #666666, rgba(250, 250, 250, 0.73)), url('https://www.mominoun.com/picture/2016-11/reel/5829df21451b2231255863.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#myblogs div{
+    width:50%;
+    padding:60px;
+}
+#myblogs div h5{
+    font-size:20px;
+    font-weight:500;
+    line-height:50px;
+    color:white;
+}
+
+#myblogs div p{
+    color:white;
+}
+
+#myblogs div a{
+    border-radius:60px;
+}
+#myfooter {
+    padding:30px 200px;
+    margin: 0px auto;
+    height: auto;
+}
+
+
+    #myfooter #iframediv iframe {
+        
+        height: 300px;
+    }
+
+
+.myfooterevent{
+    padding:2px;
+
+}
+.myfooterevent span{
+    padding:20px;
+    background-color:gray;
+}
+.myfooterevent p{
+    line-height:40px;
+    padding-right:10px;
+}
+
+
+
+
+h2 {
+    margin-top: 40px;
+}
+hr.vertical {
+    height: 90%; /* you might need some positioning for this to work, see other questions about 100% height */
+    width: 0;
+    border: 3px solid #FCAE42;
+    background-color: #FCAE42;
+}
+
+@media only screen and (max-width:1200px){
+
+    #myfooter {
+        padding: 30px 20px;
+        margin: 0px auto;
+        height: auto;
+    }
+    #myblogs div {
+        width: 100%;
+        padding: 60px;
+    }
+
+}
+@media only screen and (max-width:767px){
+    hr.vertical {
+        height: 2%; /* you might need some positioning for this to work, see other questions about 100% height */
+        width: 100%;
+        border: 3px solid #FCAE42;
+        background-color: #FCAE42;
+    }
+}

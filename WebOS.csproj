@@ -1,0 +1,279 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>aspnet-WebOS-FC484636-E5DF-49A3-B161-0C275558D106</UserSecretsId>
+	 
+
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\FreelancerComments\**" />
+    <Compile Remove="Controllers\FreelancerPortfolios\**" />
+    <Compile Remove="Controllers\FreelancerProjectsAnnouncementSendingLogs\**" />
+    <Compile Remove="Controllers\FreelancerProjectsAnnouncements\**" />
+    <Compile Remove="Controllers\FreelancerProjects\**" />
+    <Compile Remove="Controllers\FreelancerProposals\**" />
+    <Compile Remove="Controllers\FreelancerRatings\**" />
+    <Compile Remove="Controllers\FreelancerReadyServiceExtensions\**" />
+    <Compile Remove="Controllers\FreelancerReadyServices\**" />
+    <Compile Remove="Controllers\FreelancerRecruiters\**" />
+    <Compile Remove="Controllers\FreelancerSkillVerifications\**" />
+    <Compile Remove="Views\Certificates\**" />
+    <Compile Remove="Views\CertificateTemplates\**" />
+    <Compile Remove="Views\ChapterStudyStatus\**" />
+    <Compile Remove="Views\CourseAnnouncementSendingLogs\**" />
+    <Compile Remove="Views\CourseAnnouncements\**" />
+    <Compile Remove="Views\CourseCertificateLists\**" />
+    <Compile Remove="Views\CourseChapterChoices\**" />
+    <Compile Remove="Views\CourseChapterContents\**" />
+    <Compile Remove="Views\CourseChapterExamLogs\**" />
+    <Compile Remove="Views\CourseChapterExams\**" />
+    <Compile Remove="Views\CourseChapters\**" />
+    <Compile Remove="Views\CourseComments\**" />
+    <Compile Remove="Views\CourseInstructors\**" />
+    <Compile Remove="Views\CourseMenus\**" />
+    <Compile Remove="Views\CourseQuestionAnswers\**" />
+    <Compile Remove="Views\CourseQuestions\**" />
+    <Compile Remove="Views\CourseRatings\**" />
+    <Compile Remove="Views\CourseRegisterations\**" />
+    <Compile Remove="Views\CourseSponsors\**" />
+    <Compile Remove="Views\Courses\**" />
+    <Compile Remove="Views\FreelancerComments\**" />
+    <Compile Remove="Views\FreelancerPortfolios\**" />
+    <Compile Remove="Views\FreelancerProjectsAnnouncementSendingLogs\**" />
+    <Compile Remove="Views\FreelancerProjectsAnnouncements\**" />
+    <Compile Remove="Views\FreelancerProjects\**" />
+    <Compile Remove="Views\FreelancerProposals\**" />
+    <Compile Remove="Views\FreelancerRatings\**" />
+    <Compile Remove="Views\FreelancerReadyServiceExtensions\**" />
+    <Compile Remove="Views\FreelancerReadyServices\**" />
+    <Compile Remove="Views\FreelancerRecruiters\**" />
+    <Compile Remove="Views\FreelancerSkillVerifications\**" />
+    <Compile Remove="Views\Messages\**" />
+    <Compile Remove="Views\Skills\**" />
+    <Compile Remove="Views\Specialities\**" />
+    <Content Remove="Controllers\FreelancerComments\**" />
+    <Content Remove="Controllers\FreelancerPortfolios\**" />
+    <Content Remove="Controllers\FreelancerProjectsAnnouncementSendingLogs\**" />
+    <Content Remove="Controllers\FreelancerProjectsAnnouncements\**" />
+    <Content Remove="Controllers\FreelancerProjects\**" />
+    <Content Remove="Controllers\FreelancerProposals\**" />
+    <Content Remove="Controllers\FreelancerRatings\**" />
+    <Content Remove="Controllers\FreelancerReadyServiceExtensions\**" />
+    <Content Remove="Controllers\FreelancerReadyServices\**" />
+    <Content Remove="Controllers\FreelancerRecruiters\**" />
+    <Content Remove="Controllers\FreelancerSkillVerifications\**" />
+    <Content Remove="Views\Certificates\**" />
+    <Content Remove="Views\CertificateTemplates\**" />
+    <Content Remove="Views\ChapterStudyStatus\**" />
+    <Content Remove="Views\CourseAnnouncementSendingLogs\**" />
+    <Content Remove="Views\CourseAnnouncements\**" />
+    <Content Remove="Views\CourseCertificateLists\**" />
+    <Content Remove="Views\CourseChapterChoices\**" />
+    <Content Remove="Views\CourseChapterContents\**" />
+    <Content Remove="Views\CourseChapterExamLogs\**" />
+    <Content Remove="Views\CourseChapterExams\**" />
+    <Content Remove="Views\CourseChapters\**" />
+    <Content Remove="Views\CourseComments\**" />
+    <Content Remove="Views\CourseInstructors\**" />
+    <Content Remove="Views\CourseMenus\**" />
+    <Content Remove="Views\CourseQuestionAnswers\**" />
+    <Content Remove="Views\CourseQuestions\**" />
+    <Content Remove="Views\CourseRatings\**" />
+    <Content Remove="Views\CourseRegisterations\**" />
+    <Content Remove="Views\CourseSponsors\**" />
+    <Content Remove="Views\Courses\**" />
+    <Content Remove="Views\FreelancerComments\**" />
+    <Content Remove="Views\FreelancerPortfolios\**" />
+    <Content Remove="Views\FreelancerProjectsAnnouncementSendingLogs\**" />
+    <Content Remove="Views\FreelancerProjectsAnnouncements\**" />
+    <Content Remove="Views\FreelancerProjects\**" />
+    <Content Remove="Views\FreelancerProposals\**" />
+    <Content Remove="Views\FreelancerRatings\**" />
+    <Content Remove="Views\FreelancerReadyServiceExtensions\**" />
+    <Content Remove="Views\FreelancerReadyServices\**" />
+    <Content Remove="Views\FreelancerRecruiters\**" />
+    <Content Remove="Views\FreelancerSkillVerifications\**" />
+    <Content Remove="Views\Messages\**" />
+    <Content Remove="Views\Skills\**" />
+    <Content Remove="Views\Specialities\**" />
+    <EmbeddedResource Remove="Controllers\FreelancerComments\**" />
+    <EmbeddedResource Remove="Controllers\FreelancerPortfolios\**" />
+    <EmbeddedResource Remove="Controllers\FreelancerProjectsAnnouncementSendingLogs\**" />
+    <EmbeddedResource Remove="Controllers\FreelancerProjectsAnnouncements\**" />
+    <EmbeddedResource Remove="Controllers\FreelancerProjects\**" />
+    <EmbeddedResource Remove="Controllers\FreelancerProposals\**" />
+    <EmbeddedResource Remove="Controllers\FreelancerRatings\**" />
+    <EmbeddedResource Remove="Controllers\FreelancerReadyServiceExtensions\**" />
+    <EmbeddedResource Remove="Controllers\FreelancerReadyServices\**" />
+    <EmbeddedResource Remove="Controllers\FreelancerRecruiters\**" />
+    <EmbeddedResource Remove="Controllers\FreelancerSkillVerifications\**" />
+    <EmbeddedResource Remove="Views\Certificates\**" />
+    <EmbeddedResource Remove="Views\CertificateTemplates\**" />
+    <EmbeddedResource Remove="Views\ChapterStudyStatus\**" />
+    <EmbeddedResource Remove="Views\CourseAnnouncementSendingLogs\**" />
+    <EmbeddedResource Remove="Views\CourseAnnouncements\**" />
+    <EmbeddedResource Remove="Views\CourseCertificateLists\**" />
+    <EmbeddedResource Remove="Views\CourseChapterChoices\**" />
+    <EmbeddedResource Remove="Views\CourseChapterContents\**" />
+    <EmbeddedResource Remove="Views\CourseChapterExamLogs\**" />
+    <EmbeddedResource Remove="Views\CourseChapterExams\**" />
+    <EmbeddedResource Remove="Views\CourseChapters\**" />
+    <EmbeddedResource Remove="Views\CourseComments\**" />
+    <EmbeddedResource Remove="Views\CourseInstructors\**" />
+    <EmbeddedResource Remove="Views\CourseMenus\**" />
+    <EmbeddedResource Remove="Views\CourseQuestionAnswers\**" />
+    <EmbeddedResource Remove="Views\CourseQuestions\**" />
+    <EmbeddedResource Remove="Views\CourseRatings\**" />
+    <EmbeddedResource Remove="Views\CourseRegisterations\**" />
+    <EmbeddedResource Remove="Views\CourseSponsors\**" />
+    <EmbeddedResource Remove="Views\Courses\**" />
+    <EmbeddedResource Remove="Views\FreelancerComments\**" />
+    <EmbeddedResource Remove="Views\FreelancerPortfolios\**" />
+    <EmbeddedResource Remove="Views\FreelancerProjectsAnnouncementSendingLogs\**" />
+    <EmbeddedResource Remove="Views\FreelancerProjectsAnnouncements\**" />
+    <EmbeddedResource Remove="Views\FreelancerProjects\**" />
+    <EmbeddedResource Remove="Views\FreelancerProposals\**" />
+    <EmbeddedResource Remove="Views\FreelancerRatings\**" />
+    <EmbeddedResource Remove="Views\FreelancerReadyServiceExtensions\**" />
+    <EmbeddedResource Remove="Views\FreelancerReadyServices\**" />
+    <EmbeddedResource Remove="Views\FreelancerRecruiters\**" />
+    <EmbeddedResource Remove="Views\FreelancerSkillVerifications\**" />
+    <EmbeddedResource Remove="Views\Messages\**" />
+    <EmbeddedResource Remove="Views\Skills\**" />
+    <EmbeddedResource Remove="Views\Specialities\**" />
+    <None Remove="Controllers\FreelancerComments\**" />
+    <None Remove="Controllers\FreelancerPortfolios\**" />
+    <None Remove="Controllers\FreelancerProjectsAnnouncementSendingLogs\**" />
+    <None Remove="Controllers\FreelancerProjectsAnnouncements\**" />
+    <None Remove="Controllers\FreelancerProjects\**" />
+    <None Remove="Controllers\FreelancerProposals\**" />
+    <None Remove="Controllers\FreelancerRatings\**" />
+    <None Remove="Controllers\FreelancerReadyServiceExtensions\**" />
+    <None Remove="Controllers\FreelancerReadyServices\**" />
+    <None Remove="Controllers\FreelancerRecruiters\**" />
+    <None Remove="Controllers\FreelancerSkillVerifications\**" />
+    <None Remove="Views\Certificates\**" />
+    <None Remove="Views\CertificateTemplates\**" />
+    <None Remove="Views\ChapterStudyStatus\**" />
+    <None Remove="Views\CourseAnnouncementSendingLogs\**" />
+    <None Remove="Views\CourseAnnouncements\**" />
+    <None Remove="Views\CourseCertificateLists\**" />
+    <None Remove="Views\CourseChapterChoices\**" />
+    <None Remove="Views\CourseChapterContents\**" />
+    <None Remove="Views\CourseChapterExamLogs\**" />
+    <None Remove="Views\CourseChapterExams\**" />
+    <None Remove="Views\CourseChapters\**" />
+    <None Remove="Views\CourseComments\**" />
+    <None Remove="Views\CourseInstructors\**" />
+    <None Remove="Views\CourseMenus\**" />
+    <None Remove="Views\CourseQuestionAnswers\**" />
+    <None Remove="Views\CourseQuestions\**" />
+    <None Remove="Views\CourseRatings\**" />
+    <None Remove="Views\CourseRegisterations\**" />
+    <None Remove="Views\CourseSponsors\**" />
+    <None Remove="Views\Courses\**" />
+    <None Remove="Views\FreelancerComments\**" />
+    <None Remove="Views\FreelancerPortfolios\**" />
+    <None Remove="Views\FreelancerProjectsAnnouncementSendingLogs\**" />
+    <None Remove="Views\FreelancerProjectsAnnouncements\**" />
+    <None Remove="Views\FreelancerProjects\**" />
+    <None Remove="Views\FreelancerProposals\**" />
+    <None Remove="Views\FreelancerRatings\**" />
+    <None Remove="Views\FreelancerReadyServiceExtensions\**" />
+    <None Remove="Views\FreelancerReadyServices\**" />
+    <None Remove="Views\FreelancerRecruiters\**" />
+    <None Remove="Views\FreelancerSkillVerifications\**" />
+    <None Remove="Views\Messages\**" />
+    <None Remove="Views\Skills\**" />
+    <None Remove="Views\Specialities\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20201222063710_add-dynamicnav.cs" />
+    <Compile Remove="Migrations\20201222063710_add-dynamicnav.Designer.cs" />
+    <Compile Remove="Migrations\20210105021755_add-blocknew.cs" />
+    <Compile Remove="Migrations\20210105021755_add-blocknew.Designer.cs" />
+    <Compile Remove="Migrations\20210105025605_edit-blocknew.cs" />
+    <Compile Remove="Migrations\20210105025605_edit-blocknew.Designer.cs" />
+    <Compile Remove="Migrations\20210209055824_add-courses.cs" />
+    <Compile Remove="Migrations\20210209055824_add-courses.Designer.cs" />
+    <Compile Remove="Migrations\20210307054838_add-employee.cs" />
+    <Compile Remove="Migrations\20210307054838_add-employee.Designer.cs" />
+    <Compile Remove="Migrations\20210313065534_add-coursecategory.cs" />
+    <Compile Remove="Migrations\20210313065534_add-coursecategory.Designer.cs" />
+    <Compile Remove="Migrations\20210405070821_add-project.cs" />
+    <Compile Remove="Migrations\20210405070821_add-project.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="compilerconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="compilerconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+	
+	  
+    <PackageReference Include="cloudscribe.Web.Pagination" Version="3.1.0" />
+	
+	  
+    <PackageReference Include="CoreCompat.System.Drawing.v2" Version="5.2.0-preview1-r131" />
+    <PackageReference Include="jquery-qrcode" Version="1.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="5.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.17" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.17">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
+    <PackageReference Include="WebEssentials.AspNetCore.PWA" Version="1.0.65" />
+    <PackageReference Include="X.PagedList.Mvc.Core" Version="8.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\Migrations\" />
+    <Folder Include="ViewComponents\" />
+    <Folder Include="Views\Shared\Components\" />
+    <Folder Include="wwwroot\Files\" />
+    <Folder Include="wwwroot\Courses\" />
+    <Folder Include="wwwroot\CertificateTemplates\" />
+    <Folder Include="wwwroot\uploads\" />
+    <Folder Include="wwwroot\Secured\" />
+    <Folder Include="wwwroot\TicketFiles\" />
+    <Folder Include="wwwroot\ProfileImages\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="compilerconfig.json" />
+    <None Include="Views\CoachingProgramContentExams\Create.cshtml" />
+    <None Include="Views\CoachingProgramContentExams\Delete.cshtml" />
+    <None Include="Views\CoachingProgramContentExams\Details.cshtml" />
+    <None Include="Views\CoachingProgramContentExams\Edit.cshtml" />
+    <None Include="Views\CoachingProgramContentExams\Index.cshtml" />
+    <None Include="wwwroot\DinkToPdf\libwkhtmltox.dll" />
+  </ItemGroup>
+
+</Project>

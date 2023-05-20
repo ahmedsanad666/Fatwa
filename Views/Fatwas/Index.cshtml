@@ -1,0 +1,85 @@
+﻿@model IEnumerable<WebOS.Models.Fatwa>
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@{
+    ApplicationUser currentuser = await UserManager.GetUserAsync(User);
+}
+@{
+    ViewData["Title"] = "Index";
+    ViewData["heading"] = "اضافة فتوى";
+}
+
+
+<div class="py-3">
+    <partial name="_Heading" view-data="@ViewData"/>
+    @if (SignInManager.IsSignedIn(User))
+    {
+<p class="my-2 py-2">
+        <a asp-action="Create" class="Add">اضافة فتوى <i class="fa-solid fa-plus mx-2"> </i></a>
+</p>
+    }
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Scholar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Question)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tags)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reads)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a asp-action="IndexByCategory" asp-controller="Fatwas" asp-route-id="@item.Category.Id">
+                        @Html.DisplayFor(modelItem => item.Category.Name)
+                    </a>
+                </td>
+                <td>
+                    <a asp-action="IndexByScholars" asp-controller="Fatwas" asp-route-id="@item.Scholar.Id">
+                        @Html.DisplayFor(modelItem => item.Scholar.Name)
+                    </a>
+                </td>
+                <td>
+                    <a asp-action="Details" asp-controller="Fatwas" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Title)</a>
+                </td>
+                <td>
+                    <a asp-action="Details" asp-controller="Fatwas" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Question)</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tags)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Reads)
+                </td>
+                    <td class="d-flex flex-lg-row flex-column   ">
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <a class="Edit" asp-action="Edit" asp-route-id="@item.Id">تحرير</a>
+                            <a class="Details" asp-action="Details" asp-route-id="@item.Id">تفاصيل</a>
+                        <a class="Delete" asp-action="Delete" asp-route-id="@item.Id">حذف</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+</div>

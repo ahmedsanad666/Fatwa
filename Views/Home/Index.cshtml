@@ -1,0 +1,124 @@
+﻿@model WebOS.Models.Homevm
+
+@{
+    ViewData["Title"] = "FatwaIraq";
+    ViewData["heading"] = "أقسام الفتاوى";
+}
+@*<div class="text-center">
+ 
+    <br/>
+        <h1 class="display-6 bg-color">تطبيق فتاوى المجمع الفقهي العراقي</h1>
+           <form>
+    <p> ابحث في تطبيق الفتاوى
+        <input type="text" name="keyword" width="500" height="200">
+        <input type="submit" class="btn-primary" value="بحث" />
+    </p>
+</form>
+    </div>
+*@
+<div class="container">
+
+
+<partial name="_Heading" view-data="@ViewData" />
+
+<div class="my-4 py-5 text-center">
+    <ul id="item-list">
+
+    @foreach(var hadith in Model.allHadith)
+    {
+            <li > @hadith.arab</li>
+    }
+    </ul>
+</div>
+<div class="row row-cols-1 row-cols-md-3 py-3">
+    @foreach (var item in Model.Categories)
+    {
+    <div class="col col-lg-2 col-md-3 col-6 ">
+        <div class="card h-100">
+                <a asp-controller="Fatwas" asp-action="IndexByCategory" asp-route-id="@item.Id">
+                    <img src="/Images/@item.Image" class="card-img-top"
+                     alt="@item.Name" />
+                </a>
+            <div class="card-body">
+                    <center><a asp-controller="Fatwas" asp-action="IndexByCategory" asp-route-id="@item.Id"><h6 class="card-title">@item.Name</h6></a></center>
+            </div>
+         @*   <div class="card-footer">
+                <small class="text-muted">عدد الفتاوى في القسم : 32</small>
+            </div>*@
+        </div>
+    </div>
+   }
+</div>
+
+</div>
+
+@*.........................l....................*@
+<div class="lastFatwa">
+
+ <h2 class="text-center py-4">جديد الفتاوى</h2>  
+<div class="row">
+<table class="table table-responsive">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fatwa.Id)
+                </th>
+            <th>
+                    @Html.DisplayNameFor(model => model.Fatwa.Category)
+            </th>
+           @* <th>
+                @Html.DisplayNameFor(model => model.Scholar)
+            </th>*@
+           @* <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Fatwa.Question)
+            </th>
+          @*  <th>
+                @Html.DisplayNameFor(model => model.Tags)
+            </th>*@
+          @*  <th>
+                @Html.DisplayNameFor(model => model.Reads)
+            </th>*@
+         
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Fatwas) {
+        <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.Name)
+            </td>
+         @*   <td>
+                @Html.DisplayFor(modelItem => item.Scholar.Name)
+            </td>*@
+           @* <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>*@
+            <td>
+                <a asp-controller="Fatwas" asp-action="Details" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Question)</a>
+            </td>
+          @*  <td>
+                @Html.DisplayFor(modelItem => item.Tags)
+            </td>*@
+           @* <td>
+                @Html.DisplayFor(modelItem => item.Reads)
+            </td>*@
+           
+        </tr>
+}
+    </tbody>
+</table>
+
+ 
+</div>
+
+
+</div>
+@section scripts{
+
+}

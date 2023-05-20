@@ -1,0 +1,81 @@
+﻿@model IEnumerable<WebOS.Models.Fatwa>
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@{
+    ApplicationUser currentuser = await UserManager.GetUserAsync(User);
+}
+@{
+    ViewData["Title"] = "Index";
+    ViewData["heading"] = "جميع المفتين";
+}
+
+
+<div class="py-3">
+    <partial name="_Heading" view-data="@ViewData"/>
+
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <p class="py-3 mt-2" >
+            <a asp-action="Create" class="Add"> مفتي جديد <i class="fa-solid fa-plus mx-2"></i></a>
+    </p>
+}
+<p>  <a asp-action="Search">بحث</a></p>
+<table class="table mufty">
+    <thead>
+        <tr>
+            <th>
+
+                @*   @Html.DisplayNameFor(model => model.Name)*@
+                الاسم
+
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.PositioName)*@
+                المنصب
+            </th>
+            <th>الصورة</th>
+            <th>الفتاوى</th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.Scholars)
+        {
+            <tr>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">
+                        @* @Html.DisplayFor(modelItem => item.Name)*@
+                        @item.Name
+                    </a>
+                </td>
+                <td>
+                    @*  @Html.DisplayFor(modelItem => item.PositioName)*@
+                    @item.PositioName
+                </td>
+                <td>
+                    <img src="~/Images/@item.Image" width="200" />
+                </td>
+                <td>
+                    <a asp-action="IndexByScholars" asp-controller="Fatwas" asp-route-id="@item.Id">@Model.Where(c=>c.ScholarId == item.Id).Count()</a>
+                </td>
+                    <td class="d-flex flex-md-row flex-column ">
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <a asp-action="Edit"  class="Edit" asp-route-id="@item.Id">تحرير</a>
+
+                        <a class="Delete" asp-action="Delete" asp-route-id="@item.Id">حذف</a>
+
+                    }
+
+                  @*  <a asp-action="IndexByScholars" asp-controller="Fatwas" asp-route-id="@item.Id">الفتاوى</a>*@
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+</div>

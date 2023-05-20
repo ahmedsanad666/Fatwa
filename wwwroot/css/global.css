@@ -1,0 +1,253 @@
+﻿
+:root {
+    --main-ligth: white;
+    --mina-dark: black;
+    --mina-red: #c0392b;
+}
+
+
+*{
+    box-sizing:border-box;
+}
+.hidden {
+  visibility:hidden;
+    opacity: 0;
+    height:0;
+  
+    
+}
+ul li{
+    transition:all .5s ease-in-out;
+}
+
+.Heading h2, .Heading h3 {
+    color: #06413a;
+position:relative;
+
+}
+ a.Edit a.Delete , a.Details{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:70%;
+    /*margin:5px 0;*/
+}
+a.Add {
+    padding: .6rem 1rem;
+    background: #c0392b;
+  
+  color:white !important;
+    border-radius:15px;
+  
+}
+a.Edit {
+    padding: 0.4rem 3em;
+    background: #27ae60;
+    color: white !important;    
+    border-radius: 11px;
+
+}
+a.Delete {
+    padding: 0.4rem 3em;
+
+    background: #c0392b;
+    color: white !important;
+    border-radius: 11px;
+}
+a.Details {
+
+    padding: 0.4rem 3em;
+    background: #2c3e50;
+    color: white !important;
+    border-radius: 11px;
+}
+    .Heading h2:after ,.Heading h3:after     {
+        position: absolute;
+        content: "";
+        height: 3px;
+        width: 100%;
+        bottom: -7px;
+        left: 0;
+        background: #0A4D68;
+        border-radius: 4px;
+    }
+
+
+    
+.btn-custom {
+    background: var(--mina-red);
+    color:var(--main-ligth);
+    border: none;
+    padding: 0.7rem 0.4rem;
+    border-radius: 10px;
+  transition:.2s all ease-in-out;
+}
+.btn-custom:hover{
+    background:var(--main-ligth);
+    color:var(--mina-red);
+}
+header {
+
+    height: 70%;
+    background: url("https://nooralldeen.com/assets/images/pg-tp-bg.jpg");
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+position:relative;
+z-index:4;
+
+}
+
+header:after{
+    position:absolute;
+    content:"";
+    height:100%;
+    width:100%;
+    top:0;
+    left:0;
+    background:rgba(0,0,0,.5);
+    z-index:-1;
+
+
+}
+
+/*.............................................................. dropdown menu.......................*/
+
+.dropDownMenu {
+    position: absolute;
+    width: 50%;
+    padding: 1.5rem 1rem;
+    background: rgba(0,0,0,.7);
+    height: 60vh;
+    border-radius: 20px;
+    left: 59%;
+    top: 20%;
+    transform: translate(-61%, -10%);
+    display:block;
+}
+.dropDownMenu.hide{
+
+       display:none !important;
+}
+  
+
+    .DropList {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+.DropList li{
+    width:100%;
+    padding:.5rem .3rem;
+    text-align:center;
+  border-bottom:1px var(--main-ligth) solid;
+  cursor:pointer;
+  border-radius:5px;
+  margin-top:3px;
+}
+.DropList li a{
+    color:var(--main-ligth) !important;
+}
+.DropList li:hover{
+   background:var(--mina-red);
+ 
+   
+}
+
+
+
+.NavBarMain {
+    height: 0;
+    background: none;
+    padding: 1rem 2rem;
+}
+.NavBarMain a{
+    color:var(--main-ligth) !important; 
+}
+    .NavBarMain img {
+        border-style: none;
+        border-radius: 50% 50%;
+        width: 63px;
+    }
+
+    .NavBarMain .col , .NavBarMain .col-8{
+        display:flex;
+        justify-items:center;
+        
+    }
+    .NavBarMain .col{
+        align-items:center;
+
+    }
+
+    .NavBarMain .ulnav{
+        margin:0 auto;
+    }
+    .headerContent{
+        position:absolute;
+        top:40%;
+        left:3%;
+        width:100%;
+        color:var(--main-ligth) !important;
+
+        /*transform:translate(50%,50%);*/
+    }
+        .headerContent input[type="text"] {
+            padding: 0.5rem;
+            border-radius: 17px;
+            outline: none;
+            border: none;
+            background: rgb(194 177 177 / 50%);
+        }
+
+        .headerContent input[type="submit"] {
+            width: 6rem;
+            border-radius: 23px;
+            padding: 0.5rem 0.4rem;
+        }
+.SearchContent {
+
+    width: 100%;
+    color: var(--main-ligth) !important;
+    /*transform:translate(50%,50%);*/
+}
+    .SearchContent input[type="text"] {
+        padding: 0.5rem;
+        border-radius: 17px;
+        outline: none;
+        border: none;
+        background: rgb(194 177 177 / 50%);
+    }
+
+    .SearchContent input[type="submit"] {
+        width: 6rem;
+        border-radius: 23px;
+        padding: 0.5rem 0.4rem;
+    }
+.Heading img {
+    width: 60px;
+    height: 60px;
+}
+
+.lastFatwa h2 {
+    color: #06413a;
+}
+
+/* .................................................... category...................*/
+.category img{
+width:5em;
+}
+
+/*.............................. mufty.........................*/
+
+.mufty img{
+    width:4em;
+    border-radius:2em;
+}
+
+footer {
+    background: #0A4D68;
+    color:var(--main-ligth);
+
+}

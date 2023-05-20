@@ -1,0 +1,81 @@
+﻿@model IEnumerable<WebOS.Models.Fatwa>
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@{
+    ApplicationUser currentuser = await UserManager.GetUserAsync(User);
+}
+@{
+    ViewData["Title"] = "Index";
+    ViewData["heading"] = "محرك البحث في الفتاوي";
+}
+
+<partial name="_Heading" view-data="@ViewData"/>
+<div class="text-center SearchContent">
+    @*   <img width="100" src="~/Pictures/logo.jpg" />*@
+    <br />
+  
+    <form class="py-3">
+        <p>
+
+            <input type="text" name="keyword" width="500" height="200">
+            <input class="btn-custom" type="submit" value="بحث" />
+        </p>
+    </form>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Scholar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Question)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reads)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                    <a asp-action="IndexByCategory" asp-controller="Fatwas" asp-route-id="@item.Id">
+                        @Html.DisplayFor(modelItem => item.Category.Name)
+                    </a>
+                </td>
+                <td>
+                    <a asp-action="IndexByScholars" asp-controller="Fatwas" asp-route-id="@item.Id">
+                        @Html.DisplayFor(modelItem => item.Scholar.Name)
+                    </a>
+                </td>
+                <td>
+                    <a asp-action="Details" asp-controller="Fatwas" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Title)</a>
+                </td>
+                <td>
+                    <a asp-action="Details" asp-controller="Fatwas" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Question)</a>
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reads)
+            </td>
+            <td>
+                    @if (SignInManager.IsSignedIn(User))
+                    { 
+                <a asp-action="Edit" asp-route-id="@item.Id">تحرير</a> 
+                <a asp-action="Details" asp-route-id="@item.Id">تفاصيل</a>
+                <a asp-action="Delete" asp-route-id="@item.Id">حذف</a>
+                    }
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

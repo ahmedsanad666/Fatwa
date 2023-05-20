@@ -1,0 +1,614 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+@import url(https://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
+/*courses=>index */
+.courseindexcontainer {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+.fa-play-circle {
+    opacity: 0.5;
+    margin-top: -100px;
+    margin-right: 70px;
+}
+.showicon {
+    display: block;
+}
+.hideicon {
+    display: none;
+}
+.coursecard:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+/*endindex*/
+/*endindex*/
+/*endindex*/
+/*courses=>learn */
+.learnnav {
+    height: 60px;
+    background: #29303B;
+    color: white;
+    width: 100%;
+}
+
+    .learnnav h5 {
+        font-size: 16px;
+        padding-left: 20px;
+        padding-right: 20px;
+        display: inline;
+        color: white;
+        line-height: 60px;
+    }
+
+    .learnnav label {
+        padding: 0 20px;
+        color: white;
+        line-height: 60px;
+    }
+
+    .learnnav span {
+        border-left: 1px solid gray;
+        color: oldlace;
+        line-height: 40px;
+    }
+
+.videosection {
+    width: 100%;
+    height: 100%;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    /*    margin-top: 1px;
+*/ /*    display:block;
+*/
+}
+
+    .videosection .chaptercontent {
+        width: 100%;
+        height: 80vh;
+    }
+    .videosection .chaptercontent iframe {
+        width: 100%;
+        height:100%;
+        background: black;
+        padding: 0px 250px;
+    }
+.listshowarrow {
+    color: white;
+    background: #1C1D1F;
+    position: absolute;
+    top: 20vh;
+    right: -100px;
+    padding: 7px 10px;
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+    .listshowarrow:hover {
+        right: 0px;
+    }
+
+
+    .listshowarrow p {
+        display:inline;
+        text-decoration:none;
+        font-size:14px;
+        color:white;
+    }
+
+    .listshowarrow span {
+        padding:3px 3px;
+        font-size: 18px;
+        color: white;
+        margin-right: 10px;
+    }
+
+.videosection .coursecontent {
+    width: 100%;
+    /*    height: 100%;
+*/ position: relative;
+}
+
+    .videosection .coursecontentminimize {
+        width: 70%;
+        position: relative;
+    }
+        .videosection .coursecontentminimize iframe {
+            width: 100%;
+            height: 100%;
+            background: black;
+            padding: 0px 0px;
+        }
+
+
+    .videosection .leftlist {
+        /*        width: 30%;
+*/      
+        display: none;
+        position: relative;
+    }
+
+.videosection .leftlistshow {
+    height: 100%;
+    width: 30%;
+    position: relative;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.rightarrow {
+    background: #1C1D1F;
+    padding: 5px 5px;
+    position: absolute;
+    color: white;
+    top: 40vh;
+    right: 0;
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.leftarrow {
+    background: #1C1D1F;
+    padding: 5px 5px;
+    position: absolute;
+    color: white;
+    left: 0;
+    top: 40vh;
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.rightarrow:hover {
+    opacity: 0.9;
+}
+
+.leftarrow:hover {
+    opacity: 0.9;
+}
+
+.choicessection {
+    margin-left: 400px;
+}
+#listhide {
+    cursor: pointer;
+}
+
+.card-header h5 button{
+    font-size:16px;
+}
+.chaptercontentclick {
+    font-size: 13px;
+}
+.container .nav .nav-link, .dropdown {
+    font-size: 14px;
+}
+.container .nav .formobile {
+    display:none;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+/*    min-width: 160px;
+*/    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+    .dropdown-content a {
+        float: none;
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: right;
+    }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown .dropbtn {
+    border:none;
+    margin-top:9px;
+    margin-right:0px;
+    background:none;
+}
+
+
+@media(max-width:1000px) {
+    .videosection .chaptercontent {
+        width: 100%;
+        height: 40vh;
+    }
+
+
+    .videosection .chaptercontent iframe {
+        width: 100%;
+        height: 100%;
+        background: black;
+        padding: 0px 0px;
+    }
+
+    .container .nav .formobile {
+        display: block;
+    }
+
+    .container .nav .notformobile {
+        display: none;
+    }
+
+    .container .nav .nav-link, .dropdown {
+        font-size: 10px;
+    }
+
+    .questionsection p{
+        font-size:12px;
+    }
+    .leftarrow {
+        display: none;
+    }
+
+    .listshowarrow {
+        display: none;
+    }
+}
+
+/*courses =>end*/
+/**/
+/**/
+/**/
+/**/
+/* courses=> details  start*/
+.courseheader {
+    align-items: center;
+    padding: 20px 0;
+    background: #1C1D1F;
+    height: 300px;
+    width: 100%;
+    justify-content: center;
+    margin-top:-16px;
+}
+
+    .coursenav {
+        height: 80px;
+        background: #1C1D1F;
+        /*        padding: 0 30px;
+*/
+    }
+
+        .coursenav h5 {
+            color: white;
+            line-height: 70px;
+            font-weight: 900;
+        }
+
+        .coursenav .container .col-sm-8 {
+            margin: 0;
+            float: right;
+        }
+
+.coursenavimg {
+    margin-top: 20px;
+    padding: 0px 0px;
+    color: black;
+    width: 300px;
+    background: #fff;
+    height: 90%;
+    border-radius: 5px;
+    z-index: 10;
+}
+
+    .coursenavimg img {
+        border-radius: 5px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .coursenavimg .btn-outline-black {
+        margin-right: 7%;
+        margin-top: 10px;
+        width: 85%;
+        font-weight: 900;
+        border-color: #1C1D1F;
+        padding-top: 15px
+    }
+
+        .coursenavimg .btn-outline-black:hover {
+            background: #1C1D1F;
+            color: white;
+            border-color: #1C1D1F;
+        }
+
+
+
+.coursecategory {
+    margin: 10px 0;
+    color: #B7A9E5;
+}
+
+/*.fa-chevron-left {
+    color: white;
+    font-size: 0.7em;
+}
+*/
+.coursename {
+    margin: 10px 0;
+    color: white;
+    font-weight: 900;
+    font-size: 20px;
+}
+
+.courseinfo {
+    margin: 0;
+    float: right;
+}
+.sssssllll{
+    height:50px;
+    padding:0;
+    margin:0;
+    width:100%;
+    background-color:yellow;
+}
+.courseimg {
+    margin-top: 20px;
+    padding: 0px 0px;
+    color: black;
+    width: 300px;
+    background: #fff;
+    height: 640px;
+    border-radius: 5px;
+    z-index: 10;
+}
+
+
+    .courseimg img {
+        border-radius: 5px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .courseimg .btn-outline-black {
+        margin-right: 7%;
+        margin-top: 10px;
+        width: 85%;
+        font-weight: 900;
+        border-color: #1C1D1F;
+        padding-top: 15px
+    }
+
+        .courseimg .btn-outline-black:hover {
+            background: #1C1D1F;
+            color: white;
+            border-color: #1C1D1F;
+        }
+
+
+.coursetags {
+    font-size: 16px;
+    color: white;
+    margin: 10px 0;
+}
+
+.courserating {
+    font-size: 12px;
+    color: white;
+}
+
+.createdby {
+    font-size: 12px;
+    color: white;
+}
+
+.lastupdate {
+    display: inline;
+    font-size: 12px;
+    color: white;
+}
+
+.certificatecost {
+    padding-top: 10px;
+    text-align: center;
+    font-size: 13px;
+}
+
+.coursecost {
+    text-align: center;
+    font-size: 13px;
+}
+
+.coursecntent {
+    padding-right: 6%;
+    text-align: right;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.coursefilm {
+    padding-right: 6%;
+    margin-top: 2px;
+    text-align: right;
+    font-size: 13px;
+}
+
+.coursefile {
+    padding-right: 6%;
+    margin-top: 2px;
+    text-align: right;
+    font-size: 13px;
+}
+
+.courselink {
+    padding-right: 6%;
+    margin-top: 2px;
+    text-align: right;
+    font-size: 13px;
+}
+
+.requirements {
+    margin: 30px 0;
+    font-size: 13px;
+}
+
+.lecturers {
+    margin: 40px 0;
+}
+
+.outcomes, .intro {
+    border-radius: 5px;
+    background-color: ghostwhite;
+    border: 1px solid #dee2e6 !important;
+    padding: 10px 10px;
+    margin: 40px 0px;
+    font-size: 14px;
+}
+
+    .outcomes h6, .contents h6, .requirements h6, .desc h6, .intro h6, .lecturers h6 {
+        font-size: 16px;
+        font-weight: 900;
+    }
+
+
+.rowmarginedit {
+/*    padding:0;
+*//*    margin:0;
+*/    width:100%;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+.flyer {
+    height: 300px;
+    border-radius: 5px;
+    border: 1px solid #dee2e6 !important;
+    padding: 3px 3px;
+    margin: 20px 0px;
+    font-size: 14px;
+}
+
+    .flyer img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .flyer iframe {
+        width: 100%;
+        height: 100%;
+    }
+/* courses=> details  end*/
+.formobile {
+    display: none;
+}
+
+.addedcomments {
+    border-radius: 5px;
+    background-color: ghostwhite;
+    border: 1px solid #dee2e6 !important;
+    padding: 10px 10px;
+    /*    margin-left: 10px;
+*/ font-size: 14px;
+}
+
+
+@media(max-width:767px) {
+    .courseheader {
+        /*                background-color: yellow;
+
+*/
+    }
+
+    .formobile {
+        display: block;
+    }
+
+    .courseimg {
+        display: none;
+    }
+
+    .coursenav {
+        display: none;
+    }
+
+    .courseheader {
+        height: 700px;
+    }
+
+    .courseinfo img {
+        width: 100%;
+        border-radius: 5px;
+    }
+
+    .certificatecost {
+        padding-top: 10px;
+        text-align: right;
+        font-size: 13px;
+        color: white;
+    }
+
+    .coursecost {
+        text-align: right;
+        font-size: 13px;
+        color: white;
+    }
+
+    .coursecntent {
+        color: white;
+        padding-right: 0;
+    }
+
+    .coursefilm {
+        color: white;
+        padding-right: 0;
+    }
+
+    .coursefile {
+        padding-right: 0;
+        color: white;
+    }
+
+    .courselink {
+        padding-right: 0;
+        color: white;
+    }
+
+    .regbtn, .learn, .fakelearn {
+        color: white;
+    }
+
+    .formobile .btn-sm {
+        width: 50px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .flyer {
+        height: 200px;
+        border-radius: 5px;
+        border: 1px solid #dee2e6 !important;
+        padding: 3px 3px;
+        margin: 20px 0px;
+        font-size: 14px;
+    }
+
+        .flyer img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .flyer iframe {
+            width: 100%;
+            height: 100%;
+        }
+}

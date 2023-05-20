@@ -1,0 +1,88 @@
+﻿@model IEnumerable<WebOS.Models.Article>
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@{
+    ApplicationUser currentuser = await UserManager.GetUserAsync(User);
+}
+@{
+    ViewData["Title"] = "المواضيع";
+    ViewData["heading"] = "مدونة التطبيق";
+}
+
+<div class="container">
+
+<partial name="_Heading" view-data="@ViewData"/>
+
+<p>يمكن نشر التحديثات، الاخبار، والمواضيع الهامة المتعلقة بالتطبيق عبر هذا القسم</p>
+@if (SignInManager.IsSignedIn(User))
+{
+    <p class="my-2 py-2">
+        <a asp-action="Create" class="Add">موضوع جديد</a>
+    </p>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+        @*    <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>*@
+          @*  <th>
+                @Html.DisplayNameFor(model => model.Content)
+            </th>*@
+           @* <th>
+                @Html.DisplayNameFor(model => model.Url)
+            </th>*@
+         @*   <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.PublishedAt)
+            </th>
+         @*   <th>
+                @Html.DisplayNameFor(model => model.Source)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Title)</a>
+            </td>
+           @* <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Content)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Url)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Image)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.PublishedAt)
+            </td>
+           @* <td>
+                @Html.DisplayFor(modelItem => item.Source)
+            </td>*@
+                    <td class="d-flex flex-md-row flex-column ">
+                    @if (SignInManager.IsSignedIn(User))
+                    { 
+                <a class="Edit" asp-action="Edit" asp-route-id="@item.Id">تعديل</a> 
+                <a class="Details" asp-action="Details" asp-route-id="@item.Id">تفاصيل</a> 
+                <a  class="Delete" asp-action="Delete" asp-route-id="@item.Id">حذف</a>
+                    }
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+</div>
