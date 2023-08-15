@@ -89,7 +89,8 @@ a.Details {
 header {
 
     height: 70%;
-    background: url("https://nooralldeen.com/assets/images/pg-tp-bg.jpg");
+    /* background: url("https://nooralldeen.com/assets/images/pg-tp-bg.jpg")   ; */
+    background: url("../Pictures/header.jpeg")   ;
     background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat;
@@ -105,7 +106,7 @@ header:after{
     width:100%;
     top:0;
     left:0;
-    background:rgba(0,0,0,.5);
+    background:rgba(0,0,0,.6);
     z-index:-1;
 
 
@@ -251,3 +252,35 @@ footer {
     color:var(--main-ligth);
 
 }
+
+.categoryy{
+    background-color: #FDAC0F;
+    margin: 5px;
+    border-radius: 1rem;   
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+.categoryy a{
+    color: white;
+}
+.categoryy a h6{
+    margin: 0;
+}
+.fatwa-box{
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,.4);
+    width: 100%;
+    padding: 1rem .8rem;
+    margin:2rem auto;
+    
+}
+.ellipsis {
+    width: 40%;
+   
+
+    text-overflow: ellipsis; /* enables ellipsis */
+    white-space: nowrap; /* keeps the text in a single line */
+    overflow: hidden; /* keeps the element from overflowing its parent */
+  }

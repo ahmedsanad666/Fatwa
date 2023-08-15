@@ -21,7 +21,7 @@
 
 <partial name="_Heading" view-data="@ViewData" />
 
-<div class="my-4 py-5 text-center">
+@* <div class="my-4 py-5 text-center">
     <ul id="item-list">
 
     @foreach(var hadith in Model.allHadith)
@@ -29,23 +29,19 @@
             <li > @hadith.arab</li>
     }
     </ul>
-</div>
+</div> *@
 <div class="row row-cols-1 row-cols-md-3 py-3">
     @foreach (var item in Model.Categories)
     {
-    <div class="col col-lg-2 col-md-3 col-6 ">
-        <div class="card h-100">
-                <a asp-controller="Fatwas" asp-action="IndexByCategory" asp-route-id="@item.Id">
-                    <img src="/Images/@item.Image" class="card-img-top"
-                     alt="@item.Name" />
-                </a>
-            <div class="card-body">
+    <div class="col  col-md-3 col-12 ">
+      
+            <div class="card-body categoryy">
                     <center><a asp-controller="Fatwas" asp-action="IndexByCategory" asp-route-id="@item.Id"><h6 class="card-title">@item.Name</h6></a></center>
             </div>
          @*   <div class="card-footer">
                 <small class="text-muted">عدد الفتاوى في القسم : 32</small>
             </div>*@
-        </div>
+        
     </div>
    }
 </div>

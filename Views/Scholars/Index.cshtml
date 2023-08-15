@@ -31,10 +31,7 @@
                 الاسم
 
             </th>
-            <th>
-                @*@Html.DisplayNameFor(model => model.PositioName)*@
-                المنصب
-            </th>
+           
             <th>الصورة</th>
             <th>الفتاوى</th>
 
@@ -46,15 +43,13 @@
         {
             <tr>
                 <td>
+                فتاوى
                     <a asp-action="Details" asp-route-id="@item.Id">
                         @* @Html.DisplayFor(modelItem => item.Name)*@
-                        @item.Name
+                        @item.Name 
                     </a>
                 </td>
-                <td>
-                    @*  @Html.DisplayFor(modelItem => item.PositioName)*@
-                    @item.PositioName
-                </td>
+              
                 <td>
                     <img src="~/Images/@item.Image" width="200" />
                 </td>

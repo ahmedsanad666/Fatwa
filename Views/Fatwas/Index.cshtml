@@ -19,8 +19,8 @@
         <a asp-action="Create" class="Add">اضافة فتوى <i class="fa-solid fa-plus mx-2"> </i></a>
 </p>
     }
-<table class="table">
-    <thead>
+<!-- <table class="table"> -->
+    <!-- <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Category)
@@ -42,10 +42,12 @@
             </th>
             <th></th>
         </tr>
-    </thead>
-    <tbody>
+    </thead> -->
+    <!-- <tbody> -->
         @foreach (var item in Model)
         {
+            @*
+           
             <tr>
                 <td>
                     <a asp-action="IndexByCategory" asp-controller="Fatwas" asp-route-id="@item.Category.Id">
@@ -78,8 +80,16 @@
                     }
                 </td>
             </tr>
+             *@
+         <div class="fatwa-box ">
+         <h4>   <a asp-action="IndexByScholars" asp-controller="Fatwas" asp-route-id="@item.Scholar.Id">
+                        @Html.DisplayFor(modelItem => item.Scholar.Name)
+                    </a></h4>
+                    <h5> <a asp-action="Details" asp-controller="Fatwas" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Title)</a> </h5>    
+                    <p class="ellipsis">   <a asp-action="Details" asp-controller="Fatwas" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Question)</a></p>
+         </div>
         }
-    </tbody>
-</table>
+    <!-- </tbody>
+</table> -->
 
 </div>
