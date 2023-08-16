@@ -19,50 +19,37 @@
             <a asp-action="Create" class="Add"> قسم جديد <i class="fa-solid fa-plus mx-2"></i></a>
     </p>
 }
-<table class="table category" >
-    <thead>
-        <tr>
-            <th>
-                @*@Html.DisplayNameFor(model => model.Name)*@
-                الاسم   
-            </th>
-            <th>
-                @* @Html.DisplayNameFor(model => model.Image)*@
-                الصورة
-            </th>
-            <th>
-                عدد الفتاوى
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
+
+
+
+
+
+
+
+    <div class="row row-cols-1 row-cols-md-3 py-3">
         @foreach (var item in ViewBag.Categories)
         {
-            <tr>
-                <td>
-                    @*@Html.DisplayFor(modelItem => item.Name)*@
-                    <a asp-action="IndexByCategory" asp-controller="Fatwas" asp-route-id="@item.Id">@item.Name</a>
-                </td>
-                <td>
-                    @* @Html.DisplayFor(modelItem => item.Image)*@
-                    <a asp-action="IndexByCategory" asp-controller="Fatwas" asp-route-id="@item.Id"><img class="img-fluid center-block d-block mx-auto" width="100" src="/Images/@item.Image" /></a>
-                </td>
-                <td><a asp-action="IndexByCategory" asp-controller="Fatwas" asp-route-id="@item.Id">@Model.Where(c=>c.CategoryId == item.Id).Count()</a></td>
-                <td class="d-flex flex-md-row flex-column ">
-                    
-                    @if (SignInManager.IsSignedIn(User))
-                    {
+            <div class="col  col-md-3 col-12 ">
 
-                        <a class="Edit" asp-action="Edit" asp-route-id="@item.Id">تحرير</a> <span>|</span>
-                        <a class="Details" asp-action="Details" asp-route-id="@item.Id">تفاصيل</a> <span>|</span>
-                        <a class="Delete" asp-action="Delete" asp-route-id="@item.Id">حذف</a>
-                    @*<a asp-action="IndexByCategory" asp-controller="Fatwas" asp-route-id="@item.Id">الفتاوى</a>*@
-                    }
-                </td>
-            </tr>
+                <div class="card-body categoryy">
+                    <center><a asp-controller="Fatwas" asp-action="IndexByCategory" asp-route-id="@item.Id"><h6 class="card-title">@item.Name</h6></a></center>
+                </div>
+                @if (SignInManager.IsSignedIn(User))
+{
+
+                    <div class="catController ">
+                    <a asp-action="Edit" asp-route-id="@item.Id">تحرير</a> <span>|</span>
+                    <a  asp-action="Details" asp-route-id="@item.Id">تفاصيل</a> <span>|</span>
+                    <a asp-action="Delete" asp-route-id="@item.Id">حذف</a>
+
+                </div>
+}
+
+                @*   <div class="card-footer">
+            <small class="text-muted">عدد الفتاوى في القسم : 32</small>
+            </div>*@
+
+            </div>
         }
-    </tbody>
-</table>
-
+    </div>
 </div>

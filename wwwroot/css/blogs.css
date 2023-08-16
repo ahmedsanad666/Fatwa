@@ -387,3 +387,22 @@
         height: 70px;
     }
 }
+.IndexByCategory{
+    padding: 1rem 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px #ccc solid;
+    background: #1E6967;
+    color:white;
+}
+.IndexByCategory p{
+    padding: 0;
+}
+.IndexByCategory .ellipsis{
+    width:85%;  
+}
+.IndexByCategory a{
+    color:white;
+}
+.IndexByCategory a:hover{
+    color:rgb(14 58 57);
+}

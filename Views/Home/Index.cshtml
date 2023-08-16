@@ -49,72 +49,7 @@
 </div>
 
 @*.........................l....................*@
-<div class="lastFatwa">
 
- <h2 class="text-center py-4">جديد الفتاوى</h2>  
-<div class="row">
-<table class="table table-responsive">
-    <thead>
-        <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Fatwa.Id)
-                </th>
-            <th>
-                    @Html.DisplayNameFor(model => model.Fatwa.Category)
-            </th>
-           @* <th>
-                @Html.DisplayNameFor(model => model.Scholar)
-            </th>*@
-           @* <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>*@
-            <th>
-                @Html.DisplayNameFor(model => model.Fatwa.Question)
-            </th>
-          @*  <th>
-                @Html.DisplayNameFor(model => model.Tags)
-            </th>*@
-          @*  <th>
-                @Html.DisplayNameFor(model => model.Reads)
-            </th>*@
-         
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Fatwas) {
-        <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Id)
-                    </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Category.Name)
-            </td>
-         @*   <td>
-                @Html.DisplayFor(modelItem => item.Scholar.Name)
-            </td>*@
-           @* <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>*@
-            <td>
-                <a asp-controller="Fatwas" asp-action="Details" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Question)</a>
-            </td>
-          @*  <td>
-                @Html.DisplayFor(modelItem => item.Tags)
-            </td>*@
-           @* <td>
-                @Html.DisplayFor(modelItem => item.Reads)
-            </td>*@
-           
-        </tr>
-}
-    </tbody>
-</table>
-
- 
-</div>
-
-
-</div>
 @section scripts{
 
 }

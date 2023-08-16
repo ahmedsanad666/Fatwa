@@ -115,6 +115,71 @@ namespace WebOS.Controllers
             return View();
         }
 
+        public async Task<IActionResult> Fatwas(string keyword)
+        {
+            if (keyword == null)
+            {
+
+                List<Hadith> allHadith = new();
+
+                Root root = new Root();
+
+                using (HttpClient client = new HttpClient())
+                {
+                    string apiUrl = "https://api.hadith.gading.dev/books/bukhari?range=300-500"; // Replace with your API endpoint
+
+                    HttpResponseMessage response = await client.GetAsync(apiUrl);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string json = await response.Content.ReadAsStringAsync();
+                        root = JsonConvert.DeserializeObject<Root>(json);
+
+                        allHadith = root.data.hadiths.ToList();
+
+
+                    }
+                    else
+                    {
+                        // Handle the API error here
+                        Console.WriteLine("error to get all hadith");
+                    }
+                }
+
+
+                Homevm HomeViewModel = new Homevm()
+                {
+
+                  
+                    Fatwas = _context.Fatwa.Include(f => f.Category).Include(f => f.Scholar).Take(20),
+                   
+                };
+
+                //var applicationDbContext = _context.Fatwa.Include(f => f.Category).Include(f => f.Scholar);
+                return View(HomeViewModel);
+            }
+            else
+            {
+                var applicationDbContext = _context.Fatwa.Where(a => a.Title.Contains(keyword) || a.Question.Contains(keyword) || a.Answer.Contains(keyword) || a.Tags.Contains(keyword) || a.Scholar.Name.Contains(keyword)).Include(f => f.Category).Include(f => f.Scholar);
+                if (applicationDbContext.Count() > 0)
+                {
+                    return RedirectToAction("Search", "Fatwas", new { keyword = keyword });
+
+                }
+
+                else
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+
+            }
+
+
+
+            return View();
+        }
+
+
         public IActionResult Privacy()
         {
             return View();

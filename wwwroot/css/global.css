@@ -284,3 +284,30 @@ footer {
     white-space: nowrap; /* keeps the text in a single line */
     overflow: hidden; /* keeps the element from overflowing its parent */
   }
+.fatwaP {
+    padding: 1.5rem 1rem;
+    background: #dde6ed;
+    border-radius:0.4rem;
+    line-height:1.7rem;
+}
+.fatwaQ {
+    line-height: 1.5rem;
+    background: #c4c8ca;
+    padding: 1rem 0.7rem;
+    border-radius: 0.8rem;
+}
+
+.fatwaAns {
+    border: 1px #ccc solid;
+    border-radius: 0.8rem;
+    padding: 1rem 0.8rem;
+    line-height: 1.5rem;
+    margin: 1rem auto;
+    box-shadow: 0px 0px 6px rgba(0,0,0,.5);
+}
+
+.fatwaTag {
+    background: #d1d8ca;
+    padding: 1rem 0.5rem;
+    border-radius: 0.4rem;
+}

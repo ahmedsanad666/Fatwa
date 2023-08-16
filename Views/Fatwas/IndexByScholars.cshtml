@@ -9,8 +9,11 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>أرشيف فتاوى الشيخ @ViewData["Name"]</h1>
+<section class="my-3 py-4">
 
+
+<h3 class="text-center mb-2 py-3">أرشيف فتاوى الشيخ @ViewData["Name"]</h3>
+@*
 <table class="table">
     <thead>
         <tr>
@@ -72,3 +75,38 @@
 }
     </tbody>
 </table>
+*@
+@foreach (var item in Model){
+
+<div class="IndexByCategory my-2 ">
+
+<h5> <a asp-action="IndexByCategory" asp-controller="Fatwas" asp-route-id="@item.Category.Id">
+                        @Html.DisplayFor(modelItem => item.Category.Name)
+                    </a></h5>
+
+                    <h6>الشيخ  <a asp-action="IndexByScholars" asp-controller="Fatwas" asp-route-id="@item.Scholar.Id">
+                        @Html.DisplayFor(modelItem => item.Scholar.Name)
+                    </a></h6>
+                    <p>   <a asp-action="Details" asp-controller="Fatwas" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Title)</a></p>
+                    <p class="ellipsis">
+                    <a asp-action="Details" asp-controller="Fatwas" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Question)</a></p>
+
+                    <div class="d-flex justify-content-end">
+                    <div class="d-flex flex-column  w-25 text-center">
+                    <span>
+                     عدد القراء
+                    </span>
+                     @Html.DisplayFor(modelItem => item.Reads) 
+                     </div>
+                    </div>
+    @if (SignInManager.IsSignedIn(User))
+                    { 
+                <div class="d-flex g-2">
+                <a class="btn btn-success mx-1" asp-action="Edit" asp-route-id="@item.Id">تحرير</a> 
+                <a class="btn btn-danger mx-1"  asp-action="Details" asp-route-id="@item.Id">تفاصيل</a> 
+                <a class="btn btn-success mx-1"  asp-action="Delete" asp-route-id="@item.Id">حذف</a>
+                        </div>
+                    }
+</div>
+}
+</section>
