@@ -198,6 +198,9 @@ nav .ulnav {
     cursor: pointer;
     display: none;
 }
+.checkbtnnav i{
+    color:white;
+}
 
 #checknav {
     display: none;
